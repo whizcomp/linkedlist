@@ -28,8 +28,8 @@ class LinkedList {
         return this.head
     }
     reverse() {
-        // 1->2->3->4->5
         let prev = this.head;
+        if (!prev) return;
         let cur = prev.next;
         while (cur) {
             let next = cur.next;
