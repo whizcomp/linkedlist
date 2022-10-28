@@ -27,11 +27,31 @@ class LinkedList {
     getFirst() {
         return this.head
     }
+    reverse() {
+        // 1->2->3->4->5
+        let prev = this.head;
+        let cur = prev.next;
+        while (cur) {
+            let next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        let tail = this.head;
+        tail.next = null;
+        let head = prev
+        return head;
+    }
+
 }
 const node1 = new NodeList(1);
 const node2 = new NodeList(7);
 const node3 = new NodeList(3)
+const node4 = new NodeList(18)
+
 node1.next = node2;
 node2.next = node3
+node3.next = node4
 const list = new LinkedList(node1)
-console.log(list.getLast())
+
+console.log(list.reverse())
