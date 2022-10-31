@@ -33,6 +33,16 @@ class LinkedList {
         }
         return lastNode
     }
+    getMiddleNode() {
+        let a = this.head;
+        let b = this.head;
+        while (b != this.getLast() && b.next != this.getLast()) {
+            b = b.next.next;
+            a = a.next
+        }
+        if (b == this.getLast()) return a;
+        return a
+    }
     getFirst() {
         return this.head
     }
@@ -124,5 +134,5 @@ node2.next = node3
 node3.next = node4
 node4.next = node5
 const list = new LinkedList(node1)
-list.removeLast()
-console.log(list.getLast())
+// list.removeLast()
+console.log(list.getMiddleNode())
